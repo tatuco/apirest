@@ -8,6 +8,6 @@ class UserNotFoundException extends NotFoundHttpException
 {
     public function __construct()
     {
-        parent::__construct('The user was not found.');
+        parent::__construct('The user was not found.',null,404);
     }
 }

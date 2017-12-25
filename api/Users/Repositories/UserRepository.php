@@ -3,7 +3,10 @@
 namespace Api\Users\Repositories;
 
 use Api\Users\Models\User;
+use Api\Users\Requests\CreateUserRequest;
+use Illuminate\Support\Facades\DB;
 use Infrastructure\Database\Eloquent\Repository;
+use Optimus\Architect\Architect;
 
 class UserRepository extends Repository
 {
@@ -31,5 +34,22 @@ class UserRepository extends Repository
         $user->save();
 
         return $user;
+    }
+    /**
+     * @return \Illuminate\Database\Eloquent\Collection|\Illuminate\Support\Collection|static[]
+     * consulta los  usuarios con sus roles
+     */
+    public function usersRoles()
+    {
+        $users = User::with('roles')->get();
+        return $users;
+    }
+
+    /**
+     * @return array retorna un json para crear un usuario
+     */
+    public function createJson()
+    {
+        return (new CreateUserRequest)->rules();
     }
 }

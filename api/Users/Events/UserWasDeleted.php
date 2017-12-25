@@ -13,4 +13,11 @@ class UserWasDeleted extends Event
     {
         $this->user = $user;
     }
+
+    public function example($user){
+
+        $name = $user['name'];
+
+
+    }
 }

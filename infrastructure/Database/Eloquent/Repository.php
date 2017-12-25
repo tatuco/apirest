@@ -2,7 +2,7 @@
 
 namespace Infrastructure\Database\Eloquent;
 
-use Optimus\Genie\Repository as BaseRepository;
+use Infrastructure\Optimus\Genie\src\Repository as BaseRepository;
 
 abstract class Repository extends BaseRepository
 {

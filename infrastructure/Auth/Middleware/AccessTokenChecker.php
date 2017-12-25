@@ -28,7 +28,7 @@ class AccessTokenChecker
             try {
                 return $this->authenticate->handle($request, $next, 'api');
             } catch (AuthenticationException $e) {
-                throw new UnauthorizedHttpException('Challenge');
+                throw new UnauthorizedHttpException('Challenge','Error de autenticacion',$e,401);
             }
         }
 

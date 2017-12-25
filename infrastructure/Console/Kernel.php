@@ -2,6 +2,8 @@
 
 namespace Infrastructure\Console;
 
+use Api\Acl\Console\AddPermissionCommand;
+use Api\Acl\Console\AddRoleCommand;
 use Api\Users\Console\AddUserCommand;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
@@ -14,7 +16,10 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        AddUserCommand::class
+        AddUserCommand::class,
+        AddRoleCommand::class,
+        AddPermissionCommand::class
+
     ];
 
     /**

@@ -149,16 +149,23 @@ return [
         Illuminate\View\ViewServiceProvider::class,
 
         Laravel\Passport\PassportServiceProvider::class,
-        Optimus\Api\System\TranslationServiceProvider::class,
-        Optimus\Api\System\ViewServiceProvider::class,
-        Optimus\ApiConsumer\Provider\LaravelServiceProvider::class,
-        Optimus\Heimdal\Provider\LaravelServiceProvider::class,
+        Infrastructure\Optimus\Distributed\src\TranslationServiceProvider::class,
+        Infrastructure\Optimus\Distributed\src\ViewServiceProvider::class,
+        Infrastructure\Optimus\ApiConsumer\src\Provider\LaravelServiceProvider::class,
+        Infrastructure\Optimus\Heimdal\src\Provider\LaravelServiceProvider::class,
 
         /*
          * Application Service Providers...
          */
         Infrastructure\Auth\AuthServiceProvider::class,
         Infrastructure\Http\RouteServiceProvider::class,
+
+        Collective\Html\HtmlServiceProvider::class,
+        Api\Acl\AclServiceProvider::class,
+        //Intervention\Image\ImageServiceProvider::class,
+        Api\Utils\Reports\src\ServiceProvider::class,
+        Barryvdh\DomPDF\ServiceProvider::class,
+
 
     ],
 
@@ -205,6 +212,12 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'Form' => Collective\Html\FormFacade::class,
+        'HTML' => Collective\Html\HtmlFacade::class,
+        'ACL' => Api\Acl\Facades\Acl::class,
+       // 'Image' => Intervention\Image\Facades\Image::class,
+        'Report' => Api\Utils\Reports\src\ServiceProvider::class,
+        'PDF'   => Barryvdh\DomPDF\ServiceProvider::class,
 
     ],
 

@@ -85,4 +85,19 @@ class UserService
 
         return $user;
     }
+
+    /**
+     * @param array $options
+     * @return \Illuminate\Database\Eloquent\Collection|\Illuminate\Support\Collection|static[]
+     *
+     */
+    public function usersRoles($options = [])
+    {
+        return $this->userRepository->usersRoles($options);
+    }
+
+    public function createJson($options = [])
+    {
+        return $this->userRepository->createJson($options);
+    }
 }
