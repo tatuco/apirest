@@ -164,7 +164,7 @@ return [
         Api\Acl\AclServiceProvider::class,
         //Intervention\Image\ImageServiceProvider::class,
         Api\Utils\Reports\src\ServiceProvider::class,
-        Barryvdh\DomPDF\ServiceProvider::class,
+       // Barryvdh\DomPDF\ServiceProvider::class,
 
 
     ],
@@ -217,7 +217,7 @@ return [
         'ACL' => Api\Acl\Facades\Acl::class,
        // 'Image' => Intervention\Image\Facades\Image::class,
         'Report' => Api\Utils\Reports\src\ServiceProvider::class,
-        'PDF'   => Barryvdh\DomPDF\ServiceProvider::class,
+       // 'PDF'   => Barryvdh\DomPDF\ServiceProvider::class,
 
     ],
 
