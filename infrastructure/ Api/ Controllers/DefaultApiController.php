@@ -11,7 +11,7 @@ class DefaultApiController extends BaseController
     {
         return response()->json([
             'title'   => 'Larapi',
-            'version' => Version::getGitTag()
+            'versión'  => 'maricoElQueLoLea'
         ]);
     }
 }
