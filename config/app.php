@@ -162,7 +162,7 @@ return [
 
         //Collective\Html\HtmlServiceProvider::class,
         Api\Acl\AclServiceProvider::class,
-        Intervention\Image\ImageServiceProvider::class,
+       // Intervention\Image\ImageServiceProvider::class,
         Api\Utils\Reports\src\ServiceProvider::class,
        // Barryvdh\DomPDF\ServiceProvider::class,
 
