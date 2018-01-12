@@ -16,6 +16,13 @@ class UserController extends Controller
         $this->userService = $userService;
     }
 
+    /**
+     * @return \Optimus\Bruno\JsonResponse
+     * el parseResouceOptions() Analizar las opciones de recursos dadas por los parámetros GET
+     * con el getAll mandamos a  consultar todo
+     * la consulta se la pasamos al parseData (optimus) el filtrado+ la llave del json
+     * y se responde el json
+     */
     public function getAll()
     {
         $resourceOptions = $this->parseResourceOptions();
@@ -53,5 +60,32 @@ class UserController extends Controller
     public function delete($userId)
     {
         return $this->response($this->userService->delete($userId));
+    }
+
+    /**
+     * @return \Optimus\Bruno\JsonResponse
+     * parseData metodo del Architect
+     * Ejemplo:$books = Book::with('Author')->get();
+
+    $architect = new \Optimus\Architect\Architect;
+    $parsed = $architect->parseData($books, [
+    'author' => 'sideload' // can also be embed or ids (embed is default)
+    ], 'books');
+     */
+    public function usersRoles()
+    {
+        $resourceOptions = $this->parseResourceOptions();
+        $data = $this->userService->usersRoles($resourceOptions);
+        $parsedData = $this->parseData($data, $resourceOptions, 'users');
+        return $this->response($parsedData);
+    }
+
+    public function createJson(){
+        $resourceOptions = $this->parseResourceOptions();
+
+        $data = $this->userService->createJson($resourceOptions);
+        $parsedData = $this->parseData($data, $resourceOptions, 'user');
+
+        return $this->response($parsedData);
     }
 }

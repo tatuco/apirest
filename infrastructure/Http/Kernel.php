@@ -18,6 +18,7 @@ class Kernel extends HttpKernel
         \Infrastructure\Http\Middleware\EncryptCookies::class,
         \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
+        \Infrastructure\Http\Middleware\Cors::class,
     ];
 
     /**
@@ -43,5 +44,7 @@ class Kernel extends HttpKernel
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
+        'roles' => \Caffeinated\Shinobi\Middleware\UserHasRole::class,
+        'permissions' => \Caffeinated\Shinobi\Middleware\UserHasPermission::class,
     ];
 }
